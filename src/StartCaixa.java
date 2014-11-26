@@ -24,6 +24,7 @@ public class StartCaixa {
 					
 					System.out.println("Chamando Clientes para o Atendimento");
 					
+					System.out.println("---------------------");
 					System.out.println("_____________________");
 					
 					System.out.println("### Ticket ###");

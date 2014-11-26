@@ -31,7 +31,7 @@ public class StartGeradorSenha {
 				System.out.println("_____________________");
 				System.out.print("Senha de " + ticket.getCliente() + " é -> " + ticket.getSenha() + "\n");
 				System.out.println("_____________________\n");
-				System.out.println("----------#----------#----------#----------#----------#----------#----------#----------#----------#----------#");
+				System.out.println("----------#----------#----------#----------#----------#----------#----------#----------#----------#----------#\n");
 				
 				
 			}
