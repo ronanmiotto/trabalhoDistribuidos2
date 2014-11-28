@@ -12,24 +12,25 @@ public class StartCaixa {
 			Scanner ler = new Scanner(System.in);
 			
 			System.out.println("___| Tickets a serem atendidos |___");
+			System.out.println("\nChamando Clientes para o Atendimento");
+			System.out.println("------------------------------------");
 			
 			while (ler.nextLine() != null) {
 				
 				
 				while(!implCaixa.verificarNovosTickets()) { }
 				
-				Ticket ticket = implCaixa.ticketSeguinte(implCaixa.getCaixaAtendente());
+				Ticket ticket = implCaixa.ticketSeguinte(implCaixa.caixaAtendente());
 				
 				if(ticket != null){
 					
-					System.out.println("Chamando Clientes para o Atendimento");
-					
-					System.out.println("---------------------");
 					System.out.println("_____________________");
 					
 					System.out.println("### Ticket ###");
+					System.out.println("Senhor(a), " + ticket.getCliente());
 					System.out.println("Senha Número -> " + ticket.getSenha());
-					System.out.println("Cliente -> " + ticket.getCliente());
+					System.out.println("Dirija-se ao Caixa -> " + ticket.getCaixaAtendente()
+							);
 					System.out.println("Preferencial -> " + ticket.getPreferencial());
 					
 					System.out.println("_____________________");

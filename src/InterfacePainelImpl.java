@@ -14,18 +14,19 @@ public class InterfacePainelImpl extends UnicastRemoteObject implements Interfac
 	// Método que aparecerá no painel
 	public Ticket ticketSeguinte(Ticket ticket) throws RemoteException {
 		
-		System.out.println("Atendendo o pŕoximo cliente");
 		
-		System.out.println("_____________________");
-		System.out.println("---------------------");
-		
-		System.out.println("Cliente -> " + ticket.getCliente());
-		System.out.println("Senha-> " + ticket.getSenha());
-		System.out.println("Caixa Número-> " + ticket.getCaixaAtendente());
-		
-		System.out.println("_____________________");
-		System.out.println("---------------------");
-		
+//		System.out.println("Atendendo o pŕoximo cliente");
+//		
+//		System.out.println("_____________________");
+//		System.out.println("---------------------");
+//		
+//		System.out.println("Cliente -> " + ticket.getCliente());
+//		System.out.println("Senha -> " + ticket.getSenha());
+//		System.out.println("Caixa Número -> " + ticket.getCaixaAtendente());
+//		
+//		System.out.println("_____________________");
+//		System.out.println("---------------------");
+//		
 		return null;
 	}
 }

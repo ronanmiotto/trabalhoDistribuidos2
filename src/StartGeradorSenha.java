@@ -29,7 +29,7 @@ public class StartGeradorSenha {
 				ticket = implCaixa.gerarTicket(ticket);
 				
 				System.out.println("_____________________");
-				System.out.print("Senha de " + ticket.getCliente() + " é -> " + ticket.getSenha() + "\n");
+				System.out.print("Senhor(ora), " + ticket.getCliente() + ",\nSua senha é -> " + ticket.getSenha() + "\n");
 				System.out.println("_____________________\n");
 				System.out.println("----------#----------#----------#----------#----------#----------#----------#----------#----------#----------#\n");
 				
@@ -37,6 +37,7 @@ public class StartGeradorSenha {
 			}
 
 		} catch (Exception e) {
+			
 			e.printStackTrace();
 		}
 	}

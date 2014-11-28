@@ -1,6 +1,9 @@
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Set;
+
+import javax.xml.bind.ParseConversionEvent;
 
 public class InterfaceCaixaImpl extends UnicastRemoteObject implements InterfaceCaixa {
 	
@@ -9,8 +12,9 @@ public class InterfaceCaixaImpl extends UnicastRemoteObject implements Interface
 	// Atributos
 	private ArrayList<Ticket> listaTickets;
 	private InterfacePainel painel;
-	private int numAtendenteCaixa = 1;
-	int senha = 1;
+	private int senhaTicket =0;
+	private int numCaixa = 0;
+
 
 	// Construtor da classe
 	public InterfaceCaixaImpl(InterfacePainel painel)
@@ -21,23 +25,16 @@ public class InterfaceCaixaImpl extends UnicastRemoteObject implements Interface
 	}
 
 	// Métodos
-	public String getAtendente() {
-		return "Caixa " + this.numAtendenteCaixa + 1;
+	public String numCaixaAtendente() throws RemoteException {
+		
+		return "Caixa " + this.numCaixa++;
 	}
 
 	public Ticket gerarTicket(Ticket ticket) throws RemoteException {
 	
-		
-		if (listaTickets.size() == 0) {
-			
-			
-		} else {
-			
-			Ticket tic = listaTickets.get(listaTickets.size() - 1);
-			senha = Integer.parseInt(tic.getSenha()) + 1;
-		}
+		this.senhaTicket += 1;
 
-		ticket.setSenha(String.valueOf(senha));
+		ticket.setSenha(String.valueOf(this.senhaTicket));
 		listaTickets.add(ticket);
 
 		return ticket;
@@ -55,7 +52,7 @@ public class InterfaceCaixaImpl extends UnicastRemoteObject implements Interface
 					
 					this.listaTickets.remove(i);
 
-					ticket.setCaixaAtendente(caixa);
+					ticket.setCaixaAtendente(String.valueOf(numCaixa));
 
 					try {
 						
@@ -74,8 +71,11 @@ public class InterfaceCaixaImpl extends UnicastRemoteObject implements Interface
 			ticket.setCaixaAtendente(caixa);
 
 			try {
+				
 				painel.ticketSeguinte(ticket);
+				
 			} catch (Exception e) {
+				
 				e.printStackTrace();
 			}
 
@@ -97,9 +97,8 @@ public class InterfaceCaixaImpl extends UnicastRemoteObject implements Interface
 		}
 	}
 
-	//Sobrescrevendo o método caixaAtendente
 	@Override
-	public String getCaixaAtendente() throws RemoteException {
+	public String caixaAtendente() throws RemoteException {
 		// TODO Auto-generated method stub
 		return null;
 	}

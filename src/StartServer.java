@@ -16,6 +16,7 @@ public class StartServer {
 			registryCaixa.rebind("caixa", new InterfaceCaixaImpl(painel));
 			
 		} catch (Exception e) {
+			
 			e.printStackTrace();
 		}
 	}
