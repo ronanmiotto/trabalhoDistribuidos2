@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class StartCaixa {
 	
 	public static void main(String[] args) {
+		
 		try {
 			Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
 			InterfaceCaixa implCaixa = (InterfaceCaixa) registry.lookup("caixa");
@@ -29,8 +30,7 @@ public class StartCaixa {
 					System.out.println("### Ticket ###");
 					System.out.println("Senhor(a), " + ticket.getCliente());
 					System.out.println("Senha Número -> " + ticket.getSenha());
-					System.out.println("Dirija-se ao Caixa -> " + ticket.getCaixaAtendente()
-							);
+					System.out.println("Dirija-se ao Caixa -> " + ticket.getCaixaAtendente());
 					System.out.println("Preferencial -> " + ticket.getPreferencial());
 					
 					System.out.println("_____________________");

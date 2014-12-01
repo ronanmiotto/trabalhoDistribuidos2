@@ -11,7 +11,8 @@ public class StartGeradorSenha {
 			InterfaceCaixa implCaixa = (InterfaceCaixa) registry.lookup("caixa");
 
 			Scanner ler = new Scanner(System.in);
-
+			
+			//Entrada de dados para criação dos tickets
 			while (true) {	
 				
 				System.out.println("********************************");
@@ -26,10 +27,12 @@ public class StartGeradorSenha {
 
 				System.out.println("Preferencial -> ");
 				ticket.setPreferencial(ler.nextLine());
+				System.out.println("Caixa Número -> ");
+				ticket.setCaixaAtendente(ler.nextLine());
 				ticket = implCaixa.gerarTicket(ticket);
 				
 				System.out.println("_____________________");
-				System.out.print("Senhor(ora), " + ticket.getCliente() + ",\nSua senha é -> " + ticket.getSenha() + "\n");
+				System.out.print("Senhor(a), " + ticket.getCliente() + ",\nSua senha é -> " + ticket.getSenha() + "\n");
 				System.out.println("_____________________\n");
 				System.out.println("----------#----------#----------#----------#----------#----------#----------#----------#----------#----------#\n");
 				

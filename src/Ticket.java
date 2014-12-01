@@ -58,7 +58,7 @@ public class Ticket implements Serializable {
 	//Sobrescrevendo o método toString
 	@Override
 	public String toString() {
-		String dadosTicket = "Senha: " + this.senha + "\n" + "Cliente: " + this.cliente + "\n" + "Preferencial: " + this.preferencial + "\n";
+		String dadosTicket = "Senha: " + this.senha + "\n" + "Cliente: " + this.cliente + "\n" + "Preferencial: " + this.preferencial + "\n" + "Caixa Número: "+ this.caixaAtendente + "\n";
 
 		return dadosTicket;
 	}

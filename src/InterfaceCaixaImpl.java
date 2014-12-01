@@ -13,7 +13,6 @@ public class InterfaceCaixaImpl extends UnicastRemoteObject implements Interface
 	private ArrayList<Ticket> listaTickets;
 	private InterfacePainel painel;
 	private int senhaTicket =0;
-	private int numCaixa = 0;
 
 
 	// Construtor da classe
@@ -24,12 +23,7 @@ public class InterfaceCaixaImpl extends UnicastRemoteObject implements Interface
 		this.painel = painel;
 	}
 
-	// Métodos
-	public String numCaixaAtendente() throws RemoteException {
-		
-		return "Caixa " + this.numCaixa++;
-	}
-
+	//Gerando as senhas
 	public Ticket gerarTicket(Ticket ticket) throws RemoteException {
 	
 		this.senhaTicket += 1;
@@ -40,6 +34,7 @@ public class InterfaceCaixaImpl extends UnicastRemoteObject implements Interface
 		return ticket;
 	}
 
+	//Método responsável pelo tratamento dos tickets
 	public Ticket ticketSeguinte(String caixa) throws RemoteException {
 		
 		if (this.listaTickets.size() != 0) {
@@ -51,8 +46,6 @@ public class InterfaceCaixaImpl extends UnicastRemoteObject implements Interface
 				if (ticket.getPreferencial().equalsIgnoreCase("Sim")) {
 					
 					this.listaTickets.remove(i);
-
-					ticket.setCaixaAtendente(String.valueOf(numCaixa));
 
 					try {
 						
@@ -68,7 +61,6 @@ public class InterfaceCaixaImpl extends UnicastRemoteObject implements Interface
 
 			Ticket ticket = this.listaTickets.get(0);
 			this.listaTickets.remove(0);
-			ticket.setCaixaAtendente(caixa);
 
 			try {
 				
@@ -83,8 +75,9 @@ public class InterfaceCaixaImpl extends UnicastRemoteObject implements Interface
 		}
 
 		return null;
-	}
-
+	} 
+	
+	//Verificando se existem novos tickets na lista
 	public Boolean verificarNovosTickets() throws RemoteException {
 		
 		if(this.listaTickets.size() == 0){
@@ -96,7 +89,7 @@ public class InterfaceCaixaImpl extends UnicastRemoteObject implements Interface
 			return true;
 		}
 	}
-
+	
 	@Override
 	public String caixaAtendente() throws RemoteException {
 		// TODO Auto-generated method stub
