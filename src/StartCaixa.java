@@ -12,39 +12,39 @@ public class StartCaixa {
 
 			Scanner ler = new Scanner(System.in);
 			
+			Ticket ticket = new Ticket();
+			
 			System.out.println("___| Tickets a serem atendidos |___");
-			System.out.println("\nChamando Clientes para o Atendimento");
-			System.out.println("------------------------------------");
+			
+			System.out.println("\nChamar novos Tickets\n");
 			
 			while (ler.nextLine() != null) {
 				
+				while(!implCaixa.verificarNovosTickets()) {
+					
+				}
 				
-				while(!implCaixa.verificarNovosTickets()) { }
-				
-				Ticket ticket = implCaixa.ticketSeguinte(implCaixa.caixaAtendente());
+				ticket = implCaixa.ticketSeguinte(implCaixa.numCaixaAtendente());
 				
 				if(ticket != null){
 					
 					System.out.println("_____________________");
 					
 					System.out.println("### Ticket ###");
-					System.out.println("Senhor(a), " + ticket.getCliente());
-					System.out.println("Senha Número -> " + ticket.getSenha());
-					System.out.println("Dirija-se ao Caixa -> " + ticket.getCaixaAtendente());
-					System.out.println("Preferencial -> " + ticket.getPreferencial());
+					System.out.println("Senha -> " + ticket.getSenha());
+					System.out.println("Cliente -> " + ticket.getCliente());
+					System.out.println("Atendimento Prioritário -> " + ticket.getPreferencial());
 					
 					System.out.println("_____________________");
 					System.out.println("---------------------");
 					
 				} else {
 					
-					System.out.println("____________________");
-					System.out.println("Não Há Tickets!");
-					System.out.println("____________________");
+					System.out.println("\nSem Tickets!\n");
 				}
 				
 				System.out.println("\nAtender novos Tickets");
-				System.out.println("\n************************************************************\n\n");
+				System.out.println("\n**********************************\n\n");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

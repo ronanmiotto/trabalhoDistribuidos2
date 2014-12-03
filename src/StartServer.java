@@ -3,7 +3,7 @@ import java.rmi.registry.Registry;
 
 public class StartServer {	
 	
-	// Main principal
+	//Servidor
 	public static void main(String[] args) {
 		
 		try {
@@ -16,7 +16,6 @@ public class StartServer {
 			registryCaixa.rebind("caixa", new InterfaceCaixaImpl(painel));
 			
 		} catch (Exception e) {
-			
 			e.printStackTrace();
 		}
 	}

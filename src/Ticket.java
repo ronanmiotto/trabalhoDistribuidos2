@@ -8,7 +8,11 @@ public class Ticket implements Serializable {
 	private String senha;
 	private String caixaAtendente;
 	private String preferencial;
+	
+	//Construtor vazio da classe
+	public Ticket() {
 
+	}
 
 	public Ticket(String cliente, String senha, String preferencial) {
 		
@@ -17,11 +21,6 @@ public class Ticket implements Serializable {
 		this.preferencial = preferencial;
 	}
 	
-	//Construtor vazio da classe
-	public Ticket() {
-
-	}
-
 	//Gerando os getters and setters
 	public String getCliente() {
 		return cliente;
@@ -55,11 +54,4 @@ public class Ticket implements Serializable {
 		this.caixaAtendente = caixaAtendente;
 	}
 
-	//Sobrescrevendo o método toString
-	@Override
-	public String toString() {
-		String dadosTicket = "Senha: " + this.senha + "\n" + "Cliente: " + this.cliente + "\n" + "Preferencial: " + this.preferencial + "\n" + "Caixa Número: "+ this.caixaAtendente + "\n";
-
-		return dadosTicket;
-	}
 }
